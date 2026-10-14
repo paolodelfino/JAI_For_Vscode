@@ -1,0 +1,218 @@
+{
+  "name": "jai-vscode-dev",
+  "displayName": "Jai for VS Code",
+  "description": "Syntax highlighting, a nested outline, workspace symbol search, and structure-aware Smart Select for the Jai programming language.",
+  "version": "0.2.9",
+  "publisher": "local",
+  "license": "MIT",
+  "preview": true,
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "jai",
+    "jai-language",
+    "syntax-highlighting",
+    "outline",
+    "workspace-symbols",
+    "smart-select"
+  ],
+  "activationEvents": [
+    "onLanguage:jai",
+    "workspaceContains:**/*.jai"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "jai",
+        "aliases": [
+          "JAI",
+          "jai"
+        ],
+        "extensions": [
+          ".jai"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "jai",
+        "scopeName": "source.jai",
+        "path": "./syntaxes/jai.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "JAI",
+      "properties": {
+        "jai.outline.showGlobalProcedures": {
+          "type": "boolean",
+          "scope": "language-overridable",
+          "default": true,
+          "order": 1,
+          "markdownDescription": "Outline: show file-scope procedures (`name :: (...)` or an anonymous procedure assigned to a file-scope name). Hiding a symbol also hides its subtree. These `jai.outline.*` settings filter the symbols the extension returns — more precisely than the built-in `outline.show*` settings — and therefore also affect breadcrumbs, Go to Symbol and Sticky Scroll."
+        },
+        "jai.outline.showNonGlobalProcedures": {
+          "type": "boolean",
+          "scope": "language-overridable",
+          "default": true,
+          "order": 2,
+          "markdownDescription": "Outline: show procedures outside file scope, including procedures inside another procedure, a `#run` block, or a type/interface body."
+        },
+        "jai.outline.showOperatorOverloads": {
+          "type": "boolean",
+          "scope": "language-overridable",
+          "default": true,
+          "order": 3,
+          "markdownDescription": "Outline: show operator overloads (`operator * :: (...)`)."
+        },
+        "jai.outline.showStructs": {
+          "type": "boolean",
+          "scope": "language-overridable",
+          "default": true,
+          "order": 4,
+          "markdownDescription": "Outline: show structs and unions, including anonymous ones assigned to a name."
+        },
+        "jai.outline.showEnums": {
+          "type": "boolean",
+          "scope": "language-overridable",
+          "default": true,
+          "order": 5,
+          "markdownDescription": "Outline: show enums and enum_flags, including anonymous ones assigned to a name."
+        },
+        "jai.outline.showEnumMembers": {
+          "type": "boolean",
+          "scope": "language-overridable",
+          "default": true,
+          "order": 6,
+          "markdownDescription": "Outline: show individual enum members."
+        },
+        "jai.outline.showStructFields": {
+          "type": "boolean",
+          "scope": "language-overridable",
+          "default": false,
+          "order": 7,
+          "markdownDescription": "Outline: show struct fields."
+        },
+        "jai.outline.showConstants": {
+          "type": "boolean",
+          "scope": "language-overridable",
+          "default": true,
+          "order": 8,
+          "markdownDescription": "Outline: show non-global constants (`name :: value` inside procedures, `#run` blocks, or types). File-scope constants are controlled by `#jai.outline.showGlobalConstants#`."
+        },
+        "jai.outline.showGlobalConstants": {
+          "type": "boolean",
+          "scope": "language-overridable",
+          "default": true,
+          "order": 9,
+          "markdownDescription": "Outline: show file-scope constants (`name :: value`). This is separate from `#jai.outline.showConstants#`, which controls constants in non-global scopes."
+        },
+        "jai.outline.showGlobalVariables": {
+          "type": "boolean",
+          "scope": "language-overridable",
+          "default": true,
+          "order": 10,
+          "markdownDescription": "Outline: show variables declared outside any procedure/type (file-scope globals)."
+        },
+        "jai.outline.showLocalVariables": {
+          "type": "boolean",
+          "scope": "language-overridable",
+          "default": false,
+          "order": 11,
+          "markdownDescription": "Outline: show local variables declared inside procedures and `#run` blocks. Hidden by default to reduce outline noise; unlike `outline.showVariables`, this does not control globals, parameters, or loop variables — toggle those separately."
+        },
+        "jai.outline.showLoopVariables": {
+          "type": "boolean",
+          "scope": "language-overridable",
+          "default": false,
+          "order": 12,
+          "markdownDescription": "Outline: show `for` loop variables/iterators."
+        },
+        "jai.outline.showParameters": {
+          "type": "boolean",
+          "scope": "language-overridable",
+          "default": false,
+          "order": 13,
+          "markdownDescription": "Outline: show procedure/struct parameters. Polymorphic `$T` and `T: Type` parameters are controlled by `#jai.outline.showTypeParameters#`."
+        },
+        "jai.outline.showTypeParameters": {
+          "type": "boolean",
+          "scope": "language-overridable",
+          "default": false,
+          "order": 14,
+          "markdownDescription": "Outline: show polymorphic type parameters (`$T`, `T: Type`)."
+        },
+        "jai.outline.showInterfaces": {
+          "type": "boolean",
+          "scope": "language-overridable",
+          "default": true,
+          "order": 15,
+          "markdownDescription": "Outline: show interfaces (`name :: interface { ... }`)."
+        },
+        "jai.outline.showTypeAliases": {
+          "type": "boolean",
+          "scope": "language-overridable",
+          "default": true,
+          "order": 16,
+          "markdownDescription": "Outline: show `#type` aliases (`name :: #type ...`)."
+        },
+        "jai.workspaceSymbols.enabled": {
+          "type": "boolean",
+          "scope": "resource",
+          "default": true,
+          "order": 20,
+          "markdownDescription": "Workspace symbols (`Ctrl+T`): enable the workspace-wide symbol index. The index is built lazily on the first workspace-symbol request — nothing is scanned at startup — and kept up to date incrementally as files change."
+        },
+        "jai.workspaceSymbols.maxWorkers": {
+          "type": "integer",
+          "scope": "window",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 32,
+          "order": 21,
+          "markdownDescription": "Workspace symbols: maximum worker threads used to tokenize/outline files while indexing. `0` means automatic (one less than the CPU count, capped at 8). If workers cannot start, indexing falls back to the main thread."
+        },
+        "jai.workspaceSymbols.maxFileSizeKiB": {
+          "type": "integer",
+          "scope": "resource",
+          "default": 0,
+          "minimum": 0,
+          "order": 22,
+          "markdownDescription": "Workspace symbols: files larger than this are skipped by the workspace index (they still work normally in the editor and document outline). `0` means **unlimited** — no file is skipped because of its size."
+        },
+        "jai.workspaceSymbols.exclude": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "scope": "resource",
+          "default": [],
+          "order": 23,
+          "markdownDescription": "Workspace symbols: glob patterns excluded from the workspace index. Empty by default — no folders (including `node_modules`, `.git`, or build output) are excluded unless you add patterns here. Changing this rebuilds the index lazily on the next workspace-symbol request."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "dump:sample": "npm run compile && node ./out/cli.js examples/sample.jai",
+    "outline:sample": "npm run compile && node ./out/cli.js examples/sample.jai --outline",
+    "test": "npm run compile && node ./test/outline.check.js && node ./test/selection.check.js && node ./test/workspace.check.js"
+  },
+  "dependencies": {
+    "vscode-oniguruma": "^2.0.1",
+    "vscode-textmate": "^9.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.6.3"
+  }
+}

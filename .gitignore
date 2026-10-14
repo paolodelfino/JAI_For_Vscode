@@ -1,0 +1,8 @@
+node_modules/
+out/
+*.vsix
+*.tokens.txt
+*.tokens.json
+!examples/sample.tokens.txt
+!examples/sample.tokens.json
+.DS_Store

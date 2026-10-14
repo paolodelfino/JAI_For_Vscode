@@ -1,0 +1,12 @@
+# Files that must NOT be shipped in the .vsix are listed here.
+# IMPORTANT: vscode-oniguruma's onig.wasm and vscode-textmate must be packaged,
+# so node_modules is intentionally NOT excluded (vsce includes production deps).
+.vscode/**
+src/**
+test/**
+examples/**
+.gitignore
+**/tsconfig.json
+**/*.map
+**/*.ts
+!out/**

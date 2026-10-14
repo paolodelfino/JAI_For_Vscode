@@ -1,0 +1,1442 @@
+==============================================================================
+JAI TOKEN DUMP
+source : examples/sample.jai
+trigger: cli: node ./out/cli.js
+lines  : 183
+tokens : 1011
+==============================================================================
+
+L   1 | // Sample Jai file for token analysis.
+      |   0:0-2      "//"  source.jai meta.comment-run.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   0:2-38     " Sample Jai file for token analysis."  source.jai meta.comment-run.jai comment.line.double-slash.jai
+L   2 | // It deliberately exercises every construct the outline should find,
+      |   1:0-2      "//"  source.jai meta.comment-run.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   1:2-69     " It deliberately exercises every construct the outline should find,"  source.jai meta.comment-run.jai comment.line.double-slash.jai
+L   3 | // including NESTED definitions. It is meant for tokenizing, not compiling.
+      |   2:0-2      "//"  source.jai meta.comment-run.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   2:2-75     " including NESTED definitions. It is meant for tokenizing, not compiling."  source.jai meta.comment-run.jai comment.line.double-slash.jai
+L   4 | (empty line)
+      |   3:0-1      ""  source.jai
+L   5 | #import "Basic";
+      |   4:0-7      "#import"  source.jai keyword.control.import.directive.jai
+      |   4:7-8      " "  source.jai
+      |   4:8-9      "\""  source.jai string.quoted.double.jai punctuation.definition.string.begin.jai
+      |   4:9-14     "Basic"  source.jai string.quoted.double.jai
+      |   4:14-15    "\""  source.jai string.quoted.double.jai punctuation.definition.string.end.jai
+      |   4:15-16    ";"  source.jai punctuation.terminator.statement.jai
+L   6 | (empty line)
+      |   5:0-1      ""  source.jai
+L   7 | PI :: 3.14159265358979;
+      |   6:0-2      "PI"  source.jai variable.other.constant.declaration.jai
+      |   6:2-3      " "  source.jai
+      |   6:3-5      "::"  source.jai keyword.operator.declaration.constant.jai
+      |   6:5-6      " "  source.jai
+      |   6:6-22     "3.14159265358979"  source.jai constant.numeric.float.decimal.jai
+      |   6:22-23    ";"  source.jai punctuation.terminator.statement.jai
+L   8 | MAX_ENTITIES :: 1024;
+      |   7:0-12     "MAX_ENTITIES"  source.jai variable.other.constant.declaration.jai
+      |   7:12-13    " "  source.jai
+      |   7:13-15    "::"  source.jai keyword.operator.declaration.constant.jai
+      |   7:15-16    " "  source.jai
+      |   7:16-20    "1024"  source.jai constant.numeric.integer.decimal.jai
+      |   7:20-21    ";"  source.jai punctuation.terminator.statement.jai
+L   9 | GREETING :: "Hello, Jai!\n";
+      |   8:0-8      "GREETING"  source.jai variable.other.constant.declaration.jai
+      |   8:8-9      " "  source.jai
+      |   8:9-11     "::"  source.jai keyword.operator.declaration.constant.jai
+      |   8:11-12    " "  source.jai
+      |   8:12-13    "\""  source.jai string.quoted.double.jai punctuation.definition.string.begin.jai
+      |   8:13-24    "Hello, Jai!"  source.jai string.quoted.double.jai
+      |   8:24-26    "\\n"  source.jai string.quoted.double.jai constant.character.escape.jai
+      |   8:26-27    "\""  source.jai string.quoted.double.jai punctuation.definition.string.end.jai
+      |   8:27-28    ";"  source.jai punctuation.terminator.statement.jai
+L  10 | HERE :: #string HERE_END
+      |   9:0-4      "HERE"  source.jai variable.other.constant.declaration.jai
+      |   9:4-5      " "  source.jai
+      |   9:5-7      "::"  source.jai keyword.operator.declaration.constant.jai
+      |   9:7-8      " "  source.jai
+      |   9:8-15     "#string"  source.jai string.unquoted.here-string.jai keyword.other.directive.here-string.jai
+      |   9:15-16    " "  source.jai string.unquoted.here-string.jai
+      |   9:16-24    "HERE_END"  source.jai string.unquoted.here-string.jai entity.name.tag.here-string.jai
+L  11 |     braces { inside } a here-string must not affect nesting
+      |   10:0-60    "    braces { inside } a here-string must not affect nesting"  source.jai string.unquoted.here-string.jai string.unquoted.here-string.body.jai
+L  12 | HERE_END
+      |   11:0-8     "HERE_END"  source.jai string.unquoted.here-string.jai entity.name.tag.here-string.jai
+L  13 | QUOTE_CHAR :: #char "\"";
+      |   12:0-10    "QUOTE_CHAR"  source.jai variable.other.constant.declaration.jai
+      |   12:10-11   " "  source.jai
+      |   12:11-13   "::"  source.jai keyword.operator.declaration.constant.jai
+      |   12:13-14   " "  source.jai
+      |   12:14-19   "#char"  source.jai keyword.other.directive.char.jai
+      |   12:19-20   " "  source.jai
+      |   12:20-21   "\""  source.jai string.quoted.double.char.jai
+      |   12:21-23   "\\\""  source.jai string.quoted.double.char.jai constant.character.escape.jai
+      |   12:23-24   "\""  source.jai string.quoted.double.char.jai
+      |   12:24-25   ";"  source.jai punctuation.terminator.statement.jai
+L  14 | (empty line)
+      |   13:0-1     ""  source.jai
+L  15 | global_counter: int;               // global variables (: Type and :=)
+      |   14:0-14    "global_counter"  source.jai variable.other.declaration.jai
+      |   14:14-15   ":"  source.jai punctuation.separator.colon.jai
+      |   14:15-16   " "  source.jai
+      |   14:16-19   "int"  source.jai support.type.builtin.jai
+      |   14:19-20   ";"  source.jai punctuation.terminator.statement.jai
+      |   14:20-35   "               "  source.jai
+      |   14:35-37   "//"  source.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   14:37-70   " global variables (: Type and :=)"  source.jai comment.line.double-slash.jai
+L  16 | global_name := "mutable global";
+      |   15:0-11    "global_name"  source.jai variable.other.declaration.jai
+      |   15:11-12   " "  source.jai
+      |   15:12-14   ":="  source.jai keyword.operator.declaration.jai
+      |   15:14-15   " "  source.jai
+      |   15:15-16   "\""  source.jai string.quoted.double.jai punctuation.definition.string.begin.jai
+      |   15:16-30   "mutable global"  source.jai string.quoted.double.jai
+      |   15:30-31   "\""  source.jai string.quoted.double.jai punctuation.definition.string.end.jai
+      |   15:31-32   ";"  source.jai punctuation.terminator.statement.jai
+L  17 | (empty line)
+      |   16:0-1     ""  source.jai
+L  18 | // ---- Type declarations -------------------------------------------------
+      |   17:0-2     "//"  source.jai meta.comment-run.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   17:2-75    " ---- Type declarations -------------------------------------------------"  source.jai meta.comment-run.jai comment.line.double-slash.jai
+L  19 | (empty line)
+      |   18:0-1     ""  source.jai
+L  20 | Vector3 :: struct {
+      |   19:0-7     "Vector3"  source.jai entity.name.type.jai
+      |   19:7-8     " "  source.jai
+      |   19:8-10    "::"  source.jai keyword.operator.declaration.constant.jai
+      |   19:10-11   " "  source.jai
+      |   19:11-17   "struct"  source.jai storage.type.jai
+      |   19:17-20   " {"  source.jai
+L  21 |     x: float;
+      |   20:0-4     "    "  source.jai
+      |   20:4-5     "x"  source.jai variable.other.declaration.jai
+      |   20:5-6     ":"  source.jai punctuation.separator.colon.jai
+      |   20:6-7     " "  source.jai
+      |   20:7-12    "float"  source.jai support.type.builtin.jai
+      |   20:12-13   ";"  source.jai punctuation.terminator.statement.jai
+L  22 |     y: float;
+      |   21:0-4     "    "  source.jai
+      |   21:4-5     "y"  source.jai variable.other.declaration.jai
+      |   21:5-6     ":"  source.jai punctuation.separator.colon.jai
+      |   21:6-7     " "  source.jai
+      |   21:7-12    "float"  source.jai support.type.builtin.jai
+      |   21:12-13   ";"  source.jai punctuation.terminator.statement.jai
+L  23 |     z: float = 0.0;
+      |   22:0-4     "    "  source.jai
+      |   22:4-5     "z"  source.jai variable.other.declaration.jai
+      |   22:5-6     ":"  source.jai punctuation.separator.colon.jai
+      |   22:6-7     " "  source.jai
+      |   22:7-12    "float"  source.jai support.type.builtin.jai
+      |   22:12-13   " "  source.jai
+      |   22:13-14   "="  source.jai keyword.operator.assignment.jai
+      |   22:14-15   " "  source.jai
+      |   22:15-18   "0.0"  source.jai constant.numeric.float.decimal.jai
+      |   22:18-19   ";"  source.jai punctuation.terminator.statement.jai
+L  24 | }
+      |   23:0-2     "}"  source.jai
+L  25 | (empty line)
+      |   24:0-1     ""  source.jai
+L  26 | Point2 :: struct {
+      |   25:0-6     "Point2"  source.jai entity.name.type.jai
+      |   25:6-7     " "  source.jai
+      |   25:7-9     "::"  source.jai keyword.operator.declaration.constant.jai
+      |   25:9-10    " "  source.jai
+      |   25:10-16   "struct"  source.jai storage.type.jai
+      |   25:16-19   " {"  source.jai
+L  27 |     x, y: float;                   // multiple declarators in one statement
+      |   26:0-4     "    "  source.jai
+      |   26:4-5     "x"  source.jai variable.other.declaration.jai
+      |   26:5-6     ","  source.jai punctuation.separator.comma.jai
+      |   26:6-7     " "  source.jai
+      |   26:7-8     "y"  source.jai variable.other.declaration.jai
+      |   26:8-9     ":"  source.jai punctuation.separator.colon.jai
+      |   26:9-10    " "  source.jai
+      |   26:10-15   "float"  source.jai support.type.builtin.jai
+      |   26:15-16   ";"  source.jai punctuation.terminator.statement.jai
+      |   26:16-35   "                   "  source.jai
+      |   26:35-37   "//"  source.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   26:37-75   " multiple declarators in one statement"  source.jai comment.line.double-slash.jai
+L  28 | }
+      |   27:0-2     "}"  source.jai
+L  29 | (empty line)
+      |   28:0-1     ""  source.jai
+L  30 | Array_Of :: struct (T: Type) {     // parameterized (polymorphic) struct
+      |   29:0-8     "Array_Of"  source.jai entity.name.type.jai
+      |   29:8-9     " "  source.jai
+      |   29:9-11    "::"  source.jai keyword.operator.declaration.constant.jai
+      |   29:11-12   " "  source.jai
+      |   29:12-18   "struct"  source.jai storage.type.jai
+      |   29:18-20   " ("  source.jai
+      |   29:20-21   "T"  source.jai variable.other.declaration.jai
+      |   29:21-22   ":"  source.jai punctuation.separator.colon.jai
+      |   29:22-23   " "  source.jai
+      |   29:23-27   "Type"  source.jai support.type.builtin.jai
+      |   29:27-35   ") {     "  source.jai
+      |   29:35-37   "//"  source.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   29:37-72   " parameterized (polymorphic) struct"  source.jai comment.line.double-slash.jai
+L  31 |     data:  *T;
+      |   30:0-4     "    "  source.jai
+      |   30:4-8     "data"  source.jai variable.other.declaration.jai
+      |   30:8-9     ":"  source.jai punctuation.separator.colon.jai
+      |   30:9-11    "  "  source.jai
+      |   30:11-12   "*"  source.jai keyword.operator.pointer.jai
+      |   30:12-13   "T"  source.jai entity.name.type.jai
+      |   30:13-14   ";"  source.jai punctuation.terminator.statement.jai
+L  32 |     count: int;
+      |   31:0-4     "    "  source.jai
+      |   31:4-9     "count"  source.jai variable.other.declaration.jai
+      |   31:9-10    ":"  source.jai punctuation.separator.colon.jai
+      |   31:10-11   " "  source.jai
+      |   31:11-14   "int"  source.jai support.type.builtin.jai
+      |   31:14-15   ";"  source.jai punctuation.terminator.statement.jai
+L  33 | }
+      |   32:0-2     "}"  source.jai
+L  34 | (empty line)
+      |   33:0-1     ""  source.jai
+L  35 | Entity :: struct {
+      |   34:0-6     "Entity"  source.jai entity.name.type.jai
+      |   34:6-7     " "  source.jai
+      |   34:7-9     "::"  source.jai keyword.operator.declaration.constant.jai
+      |   34:9-10    " "  source.jai
+      |   34:10-16   "struct"  source.jai storage.type.jai
+      |   34:16-19   " {"  source.jai
+L  36 |     id:    u64;
+      |   35:0-4     "    "  source.jai
+      |   35:4-6     "id"  source.jai variable.other.declaration.jai
+      |   35:6-7     ":"  source.jai punctuation.separator.colon.jai
+      |   35:7-11    "    "  source.jai
+      |   35:11-14   "u64"  source.jai support.type.builtin.jai
+      |   35:14-15   ";"  source.jai punctuation.terminator.statement.jai
+L  37 |     pos:   Vector3;
+      |   36:0-4     "    "  source.jai
+      |   36:4-7     "pos"  source.jai variable.other.declaration.jai
+      |   36:7-8     ":"  source.jai punctuation.separator.colon.jai
+      |   36:8-11    "   "  source.jai
+      |   36:11-18   "Vector3"  source.jai entity.name.type.jai
+      |   36:18-19   ";"  source.jai punctuation.terminator.statement.jai
+L  38 |     vel:   Vector3;
+      |   37:0-4     "    "  source.jai
+      |   37:4-7     "vel"  source.jai variable.other.declaration.jai
+      |   37:7-8     ":"  source.jai punctuation.separator.colon.jai
+      |   37:8-11    "   "  source.jai
+      |   37:11-18   "Vector3"  source.jai entity.name.type.jai
+      |   37:18-19   ";"  source.jai punctuation.terminator.statement.jai
+L  39 |     name:  string;
+      |   38:0-4     "    "  source.jai
+      |   38:4-8     "name"  source.jai variable.other.declaration.jai
+      |   38:8-9     ":"  source.jai punctuation.separator.colon.jai
+      |   38:9-11    "  "  source.jai
+      |   38:11-17   "string"  source.jai support.type.builtin.jai
+      |   38:17-18   ";"  source.jai punctuation.terminator.statement.jai
+L  40 |     flags: Entity_Flags;
+      |   39:0-4     "    "  source.jai
+      |   39:4-9     "flags"  source.jai variable.other.declaration.jai
+      |   39:9-10    ":"  source.jai punctuation.separator.colon.jai
+      |   39:10-11   " "  source.jai
+      |   39:11-23   "Entity_Flags"  source.jai entity.name.type.jai
+      |   39:23-24   ";"  source.jai punctuation.terminator.statement.jai
+L  41 |     using transform: Transform;   // anonymous / using member
+      |   40:0-4     "    "  source.jai
+      |   40:4-9     "using"  source.jai keyword.other.using.jai
+      |   40:9-10    " "  source.jai
+      |   40:10-19   "transform"  source.jai variable.other.declaration.jai
+      |   40:19-20   ":"  source.jai punctuation.separator.colon.jai
+      |   40:20-21   " "  source.jai
+      |   40:21-30   "Transform"  source.jai entity.name.type.jai
+      |   40:30-31   ";"  source.jai punctuation.terminator.statement.jai
+      |   40:31-34   "   "  source.jai
+      |   40:34-36   "//"  source.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   40:36-61   " anonymous / using member"  source.jai comment.line.double-slash.jai
+L  42 | (empty line)
+      |   41:0-1     ""  source.jai
+L  43 |     Transform :: struct {          // nested type declaration
+      |   42:0-4     "    "  source.jai
+      |   42:4-13    "Transform"  source.jai entity.name.type.jai
+      |   42:13-14   " "  source.jai
+      |   42:14-16   "::"  source.jai keyword.operator.declaration.constant.jai
+      |   42:16-17   " "  source.jai
+      |   42:17-23   "struct"  source.jai storage.type.jai
+      |   42:23-35   " {          "  source.jai
+      |   42:35-37   "//"  source.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   42:37-61   " nested type declaration"  source.jai comment.line.double-slash.jai
+L  44 |         rotation: float;
+      |   43:0-8     "        "  source.jai
+      |   43:8-16    "rotation"  source.jai variable.other.declaration.jai
+      |   43:16-17   ":"  source.jai punctuation.separator.colon.jai
+      |   43:17-18   " "  source.jai
+      |   43:18-23   "float"  source.jai support.type.builtin.jai
+      |   43:23-24   ";"  source.jai punctuation.terminator.statement.jai
+L  45 |         scale:    float;
+      |   44:0-8     "        "  source.jai
+      |   44:8-13    "scale"  source.jai variable.other.declaration.jai
+      |   44:13-14   ":"  source.jai punctuation.separator.colon.jai
+      |   44:14-18   "    "  source.jai
+      |   44:18-23   "float"  source.jai support.type.builtin.jai
+      |   44:23-24   ";"  source.jai punctuation.terminator.statement.jai
+L  46 |     }
+      |   45:0-6     "    }"  source.jai
+L  47 | }
+      |   46:0-2     "}"  source.jai
+L  48 | (empty line)
+      |   47:0-1     ""  source.jai
+L  49 | Entity_Flags :: enum_flags {
+      |   48:0-12    "Entity_Flags"  source.jai entity.name.type.jai
+      |   48:12-13   " "  source.jai
+      |   48:13-15   "::"  source.jai keyword.operator.declaration.constant.jai
+      |   48:15-16   " "  source.jai
+      |   48:16-26   "enum_flags"  source.jai storage.type.jai
+      |   48:26-29   " {"  source.jai
+L  50 |     ALIVE       :: 0x1;
+      |   49:0-4     "    "  source.jai
+      |   49:4-9     "ALIVE"  source.jai variable.other.constant.declaration.jai
+      |   49:9-16    "       "  source.jai
+      |   49:16-18   "::"  source.jai keyword.operator.declaration.constant.jai
+      |   49:18-19   " "  source.jai
+      |   49:19-22   "0x1"  source.jai constant.numeric.integer.hexadecimal.jai
+      |   49:22-23   ";"  source.jai punctuation.terminator.statement.jai
+L  51 |     VISIBLE     :: 0x2;
+      |   50:0-4     "    "  source.jai
+      |   50:4-11    "VISIBLE"  source.jai variable.other.constant.declaration.jai
+      |   50:11-16   "     "  source.jai
+      |   50:16-18   "::"  source.jai keyword.operator.declaration.constant.jai
+      |   50:18-19   " "  source.jai
+      |   50:19-22   "0x2"  source.jai constant.numeric.integer.hexadecimal.jai
+      |   50:22-23   ";"  source.jai punctuation.terminator.statement.jai
+L  52 |     SELECTED    :: 0x4;
+      |   51:0-4     "    "  source.jai
+      |   51:4-12    "SELECTED"  source.jai variable.other.constant.declaration.jai
+      |   51:12-16   "    "  source.jai
+      |   51:16-18   "::"  source.jai keyword.operator.declaration.constant.jai
+      |   51:18-19   " "  source.jai
+      |   51:19-22   "0x4"  source.jai constant.numeric.integer.hexadecimal.jai
+      |   51:22-23   ";"  source.jai punctuation.terminator.statement.jai
+L  53 | }
+      |   52:0-2     "}"  source.jai
+L  54 | (empty line)
+      |   53:0-1     ""  source.jai
+L  55 | State :: enum {
+      |   54:0-5     "State"  source.jai entity.name.type.jai
+      |   54:5-6     " "  source.jai
+      |   54:6-8     "::"  source.jai keyword.operator.declaration.constant.jai
+      |   54:8-9     " "  source.jai
+      |   54:9-13    "enum"  source.jai storage.type.jai
+      |   54:13-16   " {"  source.jai
+L  56 |     IDLE;
+      |   55:0-8     "    IDLE"  source.jai
+      |   55:8-9     ";"  source.jai punctuation.terminator.statement.jai
+L  57 |     RUNNING;
+      |   56:0-11    "    RUNNING"  source.jai
+      |   56:11-12   ";"  source.jai punctuation.terminator.statement.jai
+L  58 |     JUMPING :: 10;                 // explicit value
+      |   57:0-4     "    "  source.jai
+      |   57:4-11    "JUMPING"  source.jai variable.other.constant.declaration.jai
+      |   57:11-12   " "  source.jai
+      |   57:12-14   "::"  source.jai keyword.operator.declaration.constant.jai
+      |   57:14-15   " "  source.jai
+      |   57:15-17   "10"  source.jai constant.numeric.integer.decimal.jai
+      |   57:17-18   ";"  source.jai punctuation.terminator.statement.jai
+      |   57:18-35   "                 "  source.jai
+      |   57:35-37   "//"  source.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   57:37-52   " explicit value"  source.jai comment.line.double-slash.jai
+L  59 |     FALLING;
+      |   58:0-11    "    FALLING"  source.jai
+      |   58:11-12   ";"  source.jai punctuation.terminator.statement.jai
+L  60 | }
+      |   59:0-2     "}"  source.jai
+L  61 | (empty line)
+      |   60:0-1     ""  source.jai
+L  62 | Shape :: union {
+      |   61:0-5     "Shape"  source.jai entity.name.type.jai
+      |   61:5-6     " "  source.jai
+      |   61:6-8     "::"  source.jai keyword.operator.declaration.constant.jai
+      |   61:8-9     " "  source.jai
+      |   61:9-14    "union"  source.jai storage.type.jai
+      |   61:14-17   " {"  source.jai
+L  63 |     circle_radius: float;
+      |   62:0-4     "    "  source.jai
+      |   62:4-17    "circle_radius"  source.jai variable.other.declaration.jai
+      |   62:17-18   ":"  source.jai punctuation.separator.colon.jai
+      |   62:18-19   " "  source.jai
+      |   62:19-24   "float"  source.jai support.type.builtin.jai
+      |   62:24-25   ";"  source.jai punctuation.terminator.statement.jai
+L  64 |     rect: struct { w: float; h: float; };  // anonymous inline struct type
+      |   63:0-4     "    "  source.jai
+      |   63:4-8     "rect"  source.jai variable.other.declaration.jai
+      |   63:8-9     ":"  source.jai punctuation.separator.colon.jai
+      |   63:9-10    " "  source.jai
+      |   63:10-16   "struct"  source.jai storage.type.jai
+      |   63:16-19   " { "  source.jai
+      |   63:19-20   "w"  source.jai variable.other.declaration.jai
+      |   63:20-21   ":"  source.jai punctuation.separator.colon.jai
+      |   63:21-22   " "  source.jai
+      |   63:22-27   "float"  source.jai support.type.builtin.jai
+      |   63:27-28   ";"  source.jai punctuation.terminator.statement.jai
+      |   63:28-29   " "  source.jai
+      |   63:29-30   "h"  source.jai variable.other.declaration.jai
+      |   63:30-31   ":"  source.jai punctuation.separator.colon.jai
+      |   63:31-32   " "  source.jai
+      |   63:32-37   "float"  source.jai support.type.builtin.jai
+      |   63:37-38   ";"  source.jai punctuation.terminator.statement.jai
+      |   63:38-40   " }"  source.jai
+      |   63:40-41   ";"  source.jai punctuation.terminator.statement.jai
+      |   63:41-43   "  "  source.jai
+      |   63:43-45   "//"  source.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   63:45-74   " anonymous inline struct type"  source.jai comment.line.double-slash.jai
+L  65 | }
+      |   64:0-2     "}"  source.jai
+L  66 | (empty line)
+      |   65:0-1     ""  source.jai
+L  67 | Alias_Type :: #type Vector3;
+      |   66:0-10    "Alias_Type"  source.jai entity.name.type.jai
+      |   66:10-11   " "  source.jai
+      |   66:11-13   "::"  source.jai keyword.operator.declaration.constant.jai
+      |   66:13-14   " "  source.jai
+      |   66:14-19   "#type"  source.jai keyword.other.directive.jai
+      |   66:19-27   " Vector3"  source.jai
+      |   66:27-28   ";"  source.jai punctuation.terminator.statement.jai
+L  68 | Procedure_Type :: #type (int, string) -> bool;
+      |   67:0-14    "Procedure_Type"  source.jai entity.name.type.jai
+      |   67:14-15   " "  source.jai
+      |   67:15-17   "::"  source.jai keyword.operator.declaration.constant.jai
+      |   67:17-18   " "  source.jai
+      |   67:18-23   "#type"  source.jai keyword.other.directive.jai
+      |   67:23-25   " ("  source.jai
+      |   67:25-28   "int"  source.jai support.type.builtin.jai
+      |   67:28-29   ","  source.jai punctuation.separator.comma.jai
+      |   67:29-30   " "  source.jai
+      |   67:30-36   "string"  source.jai support.type.builtin.jai
+      |   67:36-38   ") "  source.jai
+      |   67:38-40   "->"  source.jai keyword.operator.arrow.jai
+      |   67:40-41   " "  source.jai
+      |   67:41-45   "bool"  source.jai support.type.builtin.jai
+      |   67:45-46   ";"  source.jai punctuation.terminator.statement.jai
+L  69 | (empty line)
+      |   68:0-1     ""  source.jai
+L  70 | // ---- Procedure declarations ---------------------------------------------
+      |   69:0-2     "//"  source.jai meta.comment-run.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   69:2-76    " ---- Procedure declarations ---------------------------------------------"  source.jai meta.comment-run.jai comment.line.double-slash.jai
+L  71 | (empty line)
+      |   70:0-1     ""  source.jai
+L  72 | main :: () {
+      |   71:0-4     "main"  source.jai entity.name.function.jai
+      |   71:4-5     " "  source.jai
+      |   71:5-7     "::"  source.jai keyword.operator.declaration.constant.jai
+      |   71:7-8     " "  source.jai
+      |   71:8-13    "() {"  source.jai
+L  73 |     print("PI is %\n", PI);
+      |   72:0-4     "    "  source.jai
+      |   72:4-9     "print"  source.jai entity.name.function.call.jai
+      |   72:9-10    "("  source.jai
+      |   72:10-11   "\""  source.jai string.quoted.double.jai punctuation.definition.string.begin.jai
+      |   72:11-18   "PI is %"  source.jai string.quoted.double.jai
+      |   72:18-20   "\\n"  source.jai string.quoted.double.jai constant.character.escape.jai
+      |   72:20-21   "\""  source.jai string.quoted.double.jai punctuation.definition.string.end.jai
+      |   72:21-22   ","  source.jai punctuation.separator.comma.jai
+      |   72:22-26   " PI)"  source.jai
+      |   72:26-27   ";"  source.jai punctuation.terminator.statement.jai
+L  74 | }
+      |   73:0-2     "}"  source.jai
+L  75 | (empty line)
+      |   74:0-1     ""  source.jai
+L  76 | add :: (a: Vector3, b: Vector3) -> Vector3 {
+      |   75:0-3     "add"  source.jai entity.name.function.jai
+      |   75:3-4     " "  source.jai
+      |   75:4-6     "::"  source.jai keyword.operator.declaration.constant.jai
+      |   75:6-7     " "  source.jai
+      |   75:7-8     "("  source.jai
+      |   75:8-9     "a"  source.jai variable.other.declaration.jai
+      |   75:9-10    ":"  source.jai punctuation.separator.colon.jai
+      |   75:10-11   " "  source.jai
+      |   75:11-18   "Vector3"  source.jai entity.name.type.jai
+      |   75:18-19   ","  source.jai punctuation.separator.comma.jai
+      |   75:19-20   " "  source.jai
+      |   75:20-21   "b"  source.jai variable.other.declaration.jai
+      |   75:21-22   ":"  source.jai punctuation.separator.colon.jai
+      |   75:22-23   " "  source.jai
+      |   75:23-30   "Vector3"  source.jai entity.name.type.jai
+      |   75:30-32   ") "  source.jai
+      |   75:32-34   "->"  source.jai keyword.operator.arrow.jai
+      |   75:34-35   " "  source.jai
+      |   75:35-42   "Vector3"  source.jai entity.name.type.jai
+      |   75:42-45   " {"  source.jai
+L  77 |     result: Vector3;
+      |   76:0-4     "    "  source.jai
+      |   76:4-10    "result"  source.jai variable.other.declaration.jai
+      |   76:10-11   ":"  source.jai punctuation.separator.colon.jai
+      |   76:11-12   " "  source.jai
+      |   76:12-19   "Vector3"  source.jai entity.name.type.jai
+      |   76:19-20   ";"  source.jai punctuation.terminator.statement.jai
+L  78 |     result.x = a.x + b.x;
+      |   77:0-10    "    result"  source.jai
+      |   77:10-11   "."  source.jai punctuation.accessor.jai
+      |   77:11-12   "x"  source.jai variable.other.member.jai
+      |   77:12-13   " "  source.jai
+      |   77:13-14   "="  source.jai keyword.operator.assignment.jai
+      |   77:14-16   " a"  source.jai
+      |   77:16-17   "."  source.jai punctuation.accessor.jai
+      |   77:17-18   "x"  source.jai variable.other.member.jai
+      |   77:18-19   " "  source.jai
+      |   77:19-20   "+"  source.jai keyword.operator.arithmetic.jai
+      |   77:20-22   " b"  source.jai
+      |   77:22-23   "."  source.jai punctuation.accessor.jai
+      |   77:23-24   "x"  source.jai variable.other.member.jai
+      |   77:24-25   ";"  source.jai punctuation.terminator.statement.jai
+L  79 |     result.y = a.y + b.y;
+      |   78:0-10    "    result"  source.jai
+      |   78:10-11   "."  source.jai punctuation.accessor.jai
+      |   78:11-12   "y"  source.jai variable.other.member.jai
+      |   78:12-13   " "  source.jai
+      |   78:13-14   "="  source.jai keyword.operator.assignment.jai
+      |   78:14-16   " a"  source.jai
+      |   78:16-17   "."  source.jai punctuation.accessor.jai
+      |   78:17-18   "y"  source.jai variable.other.member.jai
+      |   78:18-19   " "  source.jai
+      |   78:19-20   "+"  source.jai keyword.operator.arithmetic.jai
+      |   78:20-22   " b"  source.jai
+      |   78:22-23   "."  source.jai punctuation.accessor.jai
+      |   78:23-24   "y"  source.jai variable.other.member.jai
+      |   78:24-25   ";"  source.jai punctuation.terminator.statement.jai
+L  80 |     result.z = a.z + b.z;
+      |   79:0-10    "    result"  source.jai
+      |   79:10-11   "."  source.jai punctuation.accessor.jai
+      |   79:11-12   "z"  source.jai variable.other.member.jai
+      |   79:12-13   " "  source.jai
+      |   79:13-14   "="  source.jai keyword.operator.assignment.jai
+      |   79:14-16   " a"  source.jai
+      |   79:16-17   "."  source.jai punctuation.accessor.jai
+      |   79:17-18   "z"  source.jai variable.other.member.jai
+      |   79:18-19   " "  source.jai
+      |   79:19-20   "+"  source.jai keyword.operator.arithmetic.jai
+      |   79:20-22   " b"  source.jai
+      |   79:22-23   "."  source.jai punctuation.accessor.jai
+      |   79:23-24   "z"  source.jai variable.other.member.jai
+      |   79:24-25   ";"  source.jai punctuation.terminator.statement.jai
+L  81 |     return result;
+      |   80:0-4     "    "  source.jai
+      |   80:4-10    "return"  source.jai keyword.control.jai
+      |   80:10-17   " result"  source.jai
+      |   80:17-18   ";"  source.jai punctuation.terminator.statement.jai
+L  82 | }
+      |   81:0-2     "}"  source.jai
+L  83 | (empty line)
+      |   82:0-1     ""  source.jai
+L  84 | inline_length :: inline (v: Vector3) -> float {
+      |   83:0-13    "inline_length"  source.jai entity.name.function.jai
+      |   83:13-14   " "  source.jai
+      |   83:14-16   "::"  source.jai keyword.operator.declaration.constant.jai
+      |   83:16-17   " "  source.jai
+      |   83:17-23   "inline"  source.jai storage.modifier.jai
+      |   83:23-25   " ("  source.jai
+      |   83:25-26   "v"  source.jai variable.other.declaration.jai
+      |   83:26-27   ":"  source.jai punctuation.separator.colon.jai
+      |   83:27-28   " "  source.jai
+      |   83:28-35   "Vector3"  source.jai entity.name.type.jai
+      |   83:35-37   ") "  source.jai
+      |   83:37-39   "->"  source.jai keyword.operator.arrow.jai
+      |   83:39-40   " "  source.jai
+      |   83:40-45   "float"  source.jai support.type.builtin.jai
+      |   83:45-48   " {"  source.jai
+L  85 |     return __sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+      |   84:0-4     "    "  source.jai
+      |   84:4-10    "return"  source.jai keyword.control.jai
+      |   84:10-11   " "  source.jai
+      |   84:11-17   "__sqrt"  source.jai entity.name.function.call.jai
+      |   84:17-19   "(v"  source.jai
+      |   84:19-20   "."  source.jai punctuation.accessor.jai
+      |   84:20-21   "x"  source.jai variable.other.member.jai
+      |   84:21-22   " "  source.jai
+      |   84:22-23   "*"  source.jai keyword.operator.arithmetic.jai
+      |   84:23-25   " v"  source.jai
+      |   84:25-26   "."  source.jai punctuation.accessor.jai
+      |   84:26-27   "x"  source.jai variable.other.member.jai
+      |   84:27-28   " "  source.jai
+      |   84:28-29   "+"  source.jai keyword.operator.arithmetic.jai
+      |   84:29-31   " v"  source.jai
+      |   84:31-32   "."  source.jai punctuation.accessor.jai
+      |   84:32-33   "y"  source.jai variable.other.member.jai
+      |   84:33-34   " "  source.jai
+      |   84:34-35   "*"  source.jai keyword.operator.arithmetic.jai
+      |   84:35-37   " v"  source.jai
+      |   84:37-38   "."  source.jai punctuation.accessor.jai
+      |   84:38-39   "y"  source.jai variable.other.member.jai
+      |   84:39-40   " "  source.jai
+      |   84:40-41   "+"  source.jai keyword.operator.arithmetic.jai
+      |   84:41-43   " v"  source.jai
+      |   84:43-44   "."  source.jai punctuation.accessor.jai
+      |   84:44-45   "z"  source.jai variable.other.member.jai
+      |   84:45-46   " "  source.jai
+      |   84:46-47   "*"  source.jai keyword.operator.arithmetic.jai
+      |   84:47-49   " v"  source.jai
+      |   84:49-50   "."  source.jai punctuation.accessor.jai
+      |   84:50-51   "z"  source.jai variable.other.member.jai
+      |   84:51-52   ")"  source.jai
+      |   84:52-53   ";"  source.jai punctuation.terminator.statement.jai
+L  86 | }
+      |   85:0-2     "}"  source.jai
+L  87 | (empty line)
+      |   86:0-1     ""  source.jai
+L  88 | no_body :: (x: int) -> int;        // declaration without a body?
+      |   87:0-7     "no_body"  source.jai entity.name.function.jai
+      |   87:7-8     " "  source.jai
+      |   87:8-10    "::"  source.jai keyword.operator.declaration.constant.jai
+      |   87:10-11   " "  source.jai
+      |   87:11-12   "("  source.jai
+      |   87:12-13   "x"  source.jai variable.other.declaration.jai
+      |   87:13-14   ":"  source.jai punctuation.separator.colon.jai
+      |   87:14-15   " "  source.jai
+      |   87:15-18   "int"  source.jai support.type.builtin.jai
+      |   87:18-20   ") "  source.jai
+      |   87:20-22   "->"  source.jai keyword.operator.arrow.jai
+      |   87:22-23   " "  source.jai
+      |   87:23-26   "int"  source.jai support.type.builtin.jai
+      |   87:26-27   ";"  source.jai punctuation.terminator.statement.jai
+      |   87:27-35   "        "  source.jai
+      |   87:35-37   "//"  source.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   87:37-65   " declaration without a body?"  source.jai comment.line.double-slash.jai
+L  89 | (empty line)
+      |   88:0-1     ""  source.jai
+L  90 | foreign_puts :: (s: *u8) -> s32 #foreign "puts";
+      |   89:0-12    "foreign_puts"  source.jai entity.name.function.jai
+      |   89:12-13   " "  source.jai
+      |   89:13-15   "::"  source.jai keyword.operator.declaration.constant.jai
+      |   89:15-16   " "  source.jai
+      |   89:16-17   "("  source.jai
+      |   89:17-18   "s"  source.jai variable.other.declaration.jai
+      |   89:18-19   ":"  source.jai punctuation.separator.colon.jai
+      |   89:19-20   " "  source.jai
+      |   89:20-21   "*"  source.jai keyword.operator.pointer.jai
+      |   89:21-23   "u8"  source.jai support.type.builtin.jai
+      |   89:23-25   ") "  source.jai
+      |   89:25-27   "->"  source.jai keyword.operator.arrow.jai
+      |   89:27-28   " "  source.jai
+      |   89:28-31   "s32"  source.jai support.type.builtin.jai
+      |   89:31-32   " "  source.jai
+      |   89:32-40   "#foreign"  source.jai storage.modifier.directive.jai
+      |   89:40-41   " "  source.jai
+      |   89:41-42   "\""  source.jai string.quoted.double.jai punctuation.definition.string.begin.jai
+      |   89:42-46   "puts"  source.jai string.quoted.double.jai
+      |   89:46-47   "\""  source.jai string.quoted.double.jai punctuation.definition.string.end.jai
+      |   89:47-48   ";"  source.jai punctuation.terminator.statement.jai
+L  91 | variadic :: (args: ..) -> void { /* ... */ }
+      |   90:0-8     "variadic"  source.jai entity.name.function.jai
+      |   90:8-9     " "  source.jai
+      |   90:9-11    "::"  source.jai keyword.operator.declaration.constant.jai
+      |   90:11-12   " "  source.jai
+      |   90:12-13   "("  source.jai
+      |   90:13-17   "args"  source.jai variable.other.declaration.jai
+      |   90:17-18   ":"  source.jai punctuation.separator.colon.jai
+      |   90:18-19   " "  source.jai
+      |   90:19-21   ".."  source.jai keyword.operator.range.jai
+      |   90:21-23   ") "  source.jai
+      |   90:23-25   "->"  source.jai keyword.operator.arrow.jai
+      |   90:25-26   " "  source.jai
+      |   90:26-30   "void"  source.jai support.type.builtin.jai
+      |   90:30-33   " { "  source.jai
+      |   90:33-35   "/*"  source.jai comment.block.jai punctuation.definition.comment.begin.jai
+      |   90:35-40   " ... "  source.jai comment.block.jai
+      |   90:40-42   "*/"  source.jai comment.block.jai punctuation.definition.comment.end.jai
+      |   90:42-45   " }"  source.jai
+L  92 | (empty line)
+      |   91:0-1     ""  source.jai
+L  93 | apply :: ($T: Type, value: T, fn: (T) -> T) -> T {   // polymorphic procedure
+      |   92:0-5     "apply"  source.jai entity.name.function.jai
+      |   92:5-6     " "  source.jai
+      |   92:6-8     "::"  source.jai keyword.operator.declaration.constant.jai
+      |   92:8-9     " "  source.jai
+      |   92:9-10    "("  source.jai
+      |   92:10-11   "$"  source.jai punctuation.definition.polymorph.jai
+      |   92:11-12   "T"  source.jai entity.name.type.parameter.jai
+      |   92:12-13   ":"  source.jai punctuation.separator.colon.jai
+      |   92:13-14   " "  source.jai
+      |   92:14-18   "Type"  source.jai support.type.builtin.jai
+      |   92:18-19   ","  source.jai punctuation.separator.comma.jai
+      |   92:19-20   " "  source.jai
+      |   92:20-25   "value"  source.jai variable.other.declaration.jai
+      |   92:25-26   ":"  source.jai punctuation.separator.colon.jai
+      |   92:26-27   " "  source.jai
+      |   92:27-28   "T"  source.jai entity.name.type.jai
+      |   92:28-29   ","  source.jai punctuation.separator.comma.jai
+      |   92:29-30   " "  source.jai
+      |   92:30-32   "fn"  source.jai variable.other.declaration.jai
+      |   92:32-33   ":"  source.jai punctuation.separator.colon.jai
+      |   92:33-34   " "  source.jai
+      |   92:34-38   "(T) "  source.jai
+      |   92:38-40   "->"  source.jai keyword.operator.arrow.jai
+      |   92:40-41   " "  source.jai
+      |   92:41-42   "T"  source.jai entity.name.type.jai
+      |   92:42-44   ") "  source.jai
+      |   92:44-46   "->"  source.jai keyword.operator.arrow.jai
+      |   92:46-47   " "  source.jai
+      |   92:47-48   "T"  source.jai entity.name.type.jai
+      |   92:48-53   " {   "  source.jai
+      |   92:53-55   "//"  source.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   92:55-77   " polymorphic procedure"  source.jai comment.line.double-slash.jai
+L  94 |     return fn(value);
+      |   93:0-4     "    "  source.jai
+      |   93:4-10    "return"  source.jai keyword.control.jai
+      |   93:10-11   " "  source.jai
+      |   93:11-13   "fn"  source.jai entity.name.function.call.jai
+      |   93:13-20   "(value)"  source.jai
+      |   93:20-21   ";"  source.jai punctuation.terminator.statement.jai
+L  95 | }
+      |   94:0-2     "}"  source.jai
+L  96 | (empty line)
+      |   95:0-1     ""  source.jai
+L  97 | operator * :: (a: Vector3, s: float) -> Vector3 {    // operator overload
+      |   96:0-8     "operator"  source.jai storage.type.function.operator.jai
+      |   96:8-9     " "  source.jai
+      |   96:9-10    "*"  source.jai keyword.operator.arithmetic.jai
+      |   96:10-11   " "  source.jai
+      |   96:11-13   "::"  source.jai keyword.operator.declaration.constant.jai
+      |   96:13-15   " ("  source.jai
+      |   96:15-16   "a"  source.jai variable.other.declaration.jai
+      |   96:16-17   ":"  source.jai punctuation.separator.colon.jai
+      |   96:17-18   " "  source.jai
+      |   96:18-25   "Vector3"  source.jai entity.name.type.jai
+      |   96:25-26   ","  source.jai punctuation.separator.comma.jai
+      |   96:26-27   " "  source.jai
+      |   96:27-28   "s"  source.jai variable.other.declaration.jai
+      |   96:28-29   ":"  source.jai punctuation.separator.colon.jai
+      |   96:29-30   " "  source.jai
+      |   96:30-35   "float"  source.jai support.type.builtin.jai
+      |   96:35-37   ") "  source.jai
+      |   96:37-39   "->"  source.jai keyword.operator.arrow.jai
+      |   96:39-40   " "  source.jai
+      |   96:40-47   "Vector3"  source.jai entity.name.type.jai
+      |   96:47-53   " {    "  source.jai
+      |   96:53-55   "//"  source.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   96:55-73   " operator overload"  source.jai comment.line.double-slash.jai
+L  98 |     return .{a.x * s, a.y * s, a.z * s};
+      |   97:0-4     "    "  source.jai
+      |   97:4-10    "return"  source.jai keyword.control.jai
+      |   97:10-11   " "  source.jai
+      |   97:11-12   "."  source.jai punctuation.accessor.jai
+      |   97:12-14   "{a"  source.jai
+      |   97:14-15   "."  source.jai punctuation.accessor.jai
+      |   97:15-16   "x"  source.jai variable.other.member.jai
+      |   97:16-17   " "  source.jai
+      |   97:17-18   "*"  source.jai keyword.operator.arithmetic.jai
+      |   97:18-20   " s"  source.jai
+      |   97:20-21   ","  source.jai punctuation.separator.comma.jai
+      |   97:21-23   " a"  source.jai
+      |   97:23-24   "."  source.jai punctuation.accessor.jai
+      |   97:24-25   "y"  source.jai variable.other.member.jai
+      |   97:25-26   " "  source.jai
+      |   97:26-27   "*"  source.jai keyword.operator.arithmetic.jai
+      |   97:27-29   " s"  source.jai
+      |   97:29-30   ","  source.jai punctuation.separator.comma.jai
+      |   97:30-32   " a"  source.jai
+      |   97:32-33   "."  source.jai punctuation.accessor.jai
+      |   97:33-34   "z"  source.jai variable.other.member.jai
+      |   97:34-35   " "  source.jai
+      |   97:35-36   "*"  source.jai keyword.operator.arithmetic.jai
+      |   97:36-39   " s}"  source.jai
+      |   97:39-40   ";"  source.jai punctuation.terminator.statement.jai
+L  99 | }
+      |   98:0-2     "}"  source.jai
+L 100 | (empty line)
+      |   99:0-1     ""  source.jai
+L 101 | // ---- Nested definitions --------------------------------------------------
+      |   100:0-2    "//"  source.jai meta.comment-run.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   100:2-77   " ---- Nested definitions --------------------------------------------------"  source.jai meta.comment-run.jai comment.line.double-slash.jai
+L 102 | (empty line)
+      |   101:0-1    ""  source.jai
+L 103 | outer_procedure :: () {
+      |   102:0-15   "outer_procedure"  source.jai entity.name.function.jai
+      |   102:15-16  " "  source.jai
+      |   102:16-18  "::"  source.jai keyword.operator.declaration.constant.jai
+      |   102:18-19  " "  source.jai
+      |   102:19-24  "() {"  source.jai
+L 104 |     Local_Config :: struct {       // nested type inside a procedure body
+      |   103:0-4    "    "  source.jai
+      |   103:4-16   "Local_Config"  source.jai entity.name.type.jai
+      |   103:16-17  " "  source.jai
+      |   103:17-19  "::"  source.jai keyword.operator.declaration.constant.jai
+      |   103:19-20  " "  source.jai
+      |   103:20-26  "struct"  source.jai storage.type.jai
+      |   103:26-35  " {       "  source.jai
+      |   103:35-37  "//"  source.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   103:37-73  " nested type inside a procedure body"  source.jai comment.line.double-slash.jai
+L 105 |         width:  int;
+      |   104:0-8    "        "  source.jai
+      |   104:8-13   "width"  source.jai variable.other.declaration.jai
+      |   104:13-14  ":"  source.jai punctuation.separator.colon.jai
+      |   104:14-16  "  "  source.jai
+      |   104:16-19  "int"  source.jai support.type.builtin.jai
+      |   104:19-20  ";"  source.jai punctuation.terminator.statement.jai
+L 106 |         height: int;
+      |   105:0-8    "        "  source.jai
+      |   105:8-14   "height"  source.jai variable.other.declaration.jai
+      |   105:14-15  ":"  source.jai punctuation.separator.colon.jai
+      |   105:15-16  " "  source.jai
+      |   105:16-19  "int"  source.jai support.type.builtin.jai
+      |   105:19-20  ";"  source.jai punctuation.terminator.statement.jai
+L 107 |     }
+      |   106:0-6    "    }"  source.jai
+L 108 | (empty line)
+      |   107:0-1    ""  source.jai
+L 109 |     LOCAL_LIMIT :: 42;             // nested constant
+      |   108:0-4    "    "  source.jai
+      |   108:4-15   "LOCAL_LIMIT"  source.jai variable.other.constant.declaration.jai
+      |   108:15-16  " "  source.jai
+      |   108:16-18  "::"  source.jai keyword.operator.declaration.constant.jai
+      |   108:18-19  " "  source.jai
+      |   108:19-21  "42"  source.jai constant.numeric.integer.decimal.jai
+      |   108:21-22  ";"  source.jai punctuation.terminator.statement.jai
+      |   108:22-35  "             "  source.jai
+      |   108:35-37  "//"  source.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   108:37-53  " nested constant"  source.jai comment.line.double-slash.jai
+L 110 | (empty line)
+      |   109:0-1    ""  source.jai
+L 111 |     helper :: (x: int) -> int {    // nested procedure
+      |   110:0-4    "    "  source.jai
+      |   110:4-10   "helper"  source.jai entity.name.function.jai
+      |   110:10-11  " "  source.jai
+      |   110:11-13  "::"  source.jai keyword.operator.declaration.constant.jai
+      |   110:13-14  " "  source.jai
+      |   110:14-15  "("  source.jai
+      |   110:15-16  "x"  source.jai variable.other.declaration.jai
+      |   110:16-17  ":"  source.jai punctuation.separator.colon.jai
+      |   110:17-18  " "  source.jai
+      |   110:18-21  "int"  source.jai support.type.builtin.jai
+      |   110:21-23  ") "  source.jai
+      |   110:23-25  "->"  source.jai keyword.operator.arrow.jai
+      |   110:25-26  " "  source.jai
+      |   110:26-29  "int"  source.jai support.type.builtin.jai
+      |   110:29-35  " {    "  source.jai
+      |   110:35-37  "//"  source.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   110:37-54  " nested procedure"  source.jai comment.line.double-slash.jai
+L 112 |         inner_helper :: () -> int {   // doubly nested procedure
+      |   111:0-8    "        "  source.jai
+      |   111:8-20   "inner_helper"  source.jai entity.name.function.jai
+      |   111:20-21  " "  source.jai
+      |   111:21-23  "::"  source.jai keyword.operator.declaration.constant.jai
+      |   111:23-24  " "  source.jai
+      |   111:24-27  "() "  source.jai
+      |   111:27-29  "->"  source.jai keyword.operator.arrow.jai
+      |   111:29-30  " "  source.jai
+      |   111:30-33  "int"  source.jai support.type.builtin.jai
+      |   111:33-38  " {   "  source.jai
+      |   111:38-40  "//"  source.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   111:40-64  " doubly nested procedure"  source.jai comment.line.double-slash.jai
+L 113 |             return 7;
+      |   112:0-12   "            "  source.jai
+      |   112:12-18  "return"  source.jai keyword.control.jai
+      |   112:18-19  " "  source.jai
+      |   112:19-20  "7"  source.jai constant.numeric.integer.decimal.jai
+      |   112:20-21  ";"  source.jai punctuation.terminator.statement.jai
+L 114 |         }
+      |   113:0-10   "        }"  source.jai
+L 115 |         return x * 2 + inner_helper();
+      |   114:0-8    "        "  source.jai
+      |   114:8-14   "return"  source.jai keyword.control.jai
+      |   114:14-17  " x "  source.jai
+      |   114:17-18  "*"  source.jai keyword.operator.arithmetic.jai
+      |   114:18-19  " "  source.jai
+      |   114:19-20  "2"  source.jai constant.numeric.integer.decimal.jai
+      |   114:20-21  " "  source.jai
+      |   114:21-22  "+"  source.jai keyword.operator.arithmetic.jai
+      |   114:22-23  " "  source.jai
+      |   114:23-35  "inner_helper"  source.jai entity.name.function.call.jai
+      |   114:35-37  "()"  source.jai
+      |   114:37-38  ";"  source.jai punctuation.terminator.statement.jai
+L 116 |     }
+      |   115:0-6    "    }"  source.jai
+L 117 | (empty line)
+      |   116:0-1    ""  source.jai
+L 118 |     config := Local_Config.{ 1920, 1080 };
+      |   117:0-4    "    "  source.jai
+      |   117:4-10   "config"  source.jai variable.other.declaration.jai
+      |   117:10-11  " "  source.jai
+      |   117:11-13  ":="  source.jai keyword.operator.declaration.jai
+      |   117:13-26  " Local_Config"  source.jai
+      |   117:26-27  "."  source.jai punctuation.accessor.jai
+      |   117:27-29  "{ "  source.jai
+      |   117:29-33  "1920"  source.jai constant.numeric.integer.decimal.jai
+      |   117:33-34  ","  source.jai punctuation.separator.comma.jai
+      |   117:34-35  " "  source.jai
+      |   117:35-39  "1080"  source.jai constant.numeric.integer.decimal.jai
+      |   117:39-41  " }"  source.jai
+      |   117:41-42  ";"  source.jai punctuation.terminator.statement.jai
+L 119 |     counter := 0;                  // plain local variables (:= and : Type)
+      |   118:0-4    "    "  source.jai
+      |   118:4-11   "counter"  source.jai variable.other.declaration.jai
+      |   118:11-12  " "  source.jai
+      |   118:12-14  ":="  source.jai keyword.operator.declaration.jai
+      |   118:14-15  " "  source.jai
+      |   118:15-16  "0"  source.jai constant.numeric.integer.decimal.jai
+      |   118:16-17  ";"  source.jai punctuation.terminator.statement.jai
+      |   118:17-35  "                  "  source.jai
+      |   118:35-37  "//"  source.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   118:37-75  " plain local variables (:= and : Type)"  source.jai comment.line.double-slash.jai
+L 120 |     typed_local: int = 5;
+      |   119:0-4    "    "  source.jai
+      |   119:4-15   "typed_local"  source.jai variable.other.declaration.jai
+      |   119:15-16  ":"  source.jai punctuation.separator.colon.jai
+      |   119:16-17  " "  source.jai
+      |   119:17-20  "int"  source.jai support.type.builtin.jai
+      |   119:20-21  " "  source.jai
+      |   119:21-22  "="  source.jai keyword.operator.assignment.jai
+      |   119:22-23  " "  source.jai
+      |   119:23-24  "5"  source.jai constant.numeric.integer.decimal.jai
+      |   119:24-25  ";"  source.jai punctuation.terminator.statement.jai
+L 121 | (empty line)
+      |   120:0-1    ""  source.jai
+L 122 |     handler := (message: string) { // anonymous procedure assigned to a variable
+      |   121:0-4    "    "  source.jai
+      |   121:4-11   "handler"  source.jai variable.other.declaration.jai
+      |   121:11-12  " "  source.jai
+      |   121:12-14  ":="  source.jai keyword.operator.declaration.jai
+      |   121:14-16  " ("  source.jai
+      |   121:16-23  "message"  source.jai variable.other.declaration.jai
+      |   121:23-24  ":"  source.jai punctuation.separator.colon.jai
+      |   121:24-25  " "  source.jai
+      |   121:25-31  "string"  source.jai support.type.builtin.jai
+      |   121:31-35  ") { "  source.jai
+      |   121:35-37  "//"  source.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   121:37-80  " anonymous procedure assigned to a variable"  source.jai comment.line.double-slash.jai
+L 123 |         print("handler: %\n", message);
+      |   122:0-8    "        "  source.jai
+      |   122:8-13   "print"  source.jai entity.name.function.call.jai
+      |   122:13-14  "("  source.jai
+      |   122:14-15  "\""  source.jai string.quoted.double.jai punctuation.definition.string.begin.jai
+      |   122:15-25  "handler: %"  source.jai string.quoted.double.jai
+      |   122:25-27  "\\n"  source.jai string.quoted.double.jai constant.character.escape.jai
+      |   122:27-28  "\""  source.jai string.quoted.double.jai punctuation.definition.string.end.jai
+      |   122:28-29  ","  source.jai punctuation.separator.comma.jai
+      |   122:29-38  " message)"  source.jai
+      |   122:38-39  ";"  source.jai punctuation.terminator.statement.jai
+L 124 |     };
+      |   123:0-5    "    }"  source.jai
+      |   123:5-6    ";"  source.jai punctuation.terminator.statement.jai
+L 125 | (empty line)
+      |   124:0-1    ""  source.jai
+L 126 |     for i: 0..9 {
+      |   125:0-4    "    "  source.jai
+      |   125:4-7    "for"  source.jai keyword.control.loop.jai
+      |   125:7-8    " "  source.jai
+      |   125:8-9    "i"  source.jai variable.other.declaration.jai
+      |   125:9-10   ":"  source.jai punctuation.separator.colon.jai
+      |   125:10-11  " "  source.jai
+      |   125:11-12  "0"  source.jai constant.numeric.integer.decimal.jai
+      |   125:12-14  ".."  source.jai keyword.operator.range.jai
+      |   125:14-15  "9"  source.jai constant.numeric.integer.decimal.jai
+      |   125:15-18  " {"  source.jai
+L 127 |         if i == 3 {
+      |   126:0-8    "        "  source.jai
+      |   126:8-10   "if"  source.jai keyword.control.jai
+      |   126:10-13  " i "  source.jai
+      |   126:13-15  "=="  source.jai keyword.operator.comparison.jai
+      |   126:15-16  " "  source.jai
+      |   126:16-17  "3"  source.jai constant.numeric.integer.decimal.jai
+      |   126:17-20  " {"  source.jai
+L 128 |             text := "brace } and { inside a string";
+      |   127:0-12   "            "  source.jai
+      |   127:12-16  "text"  source.jai variable.other.declaration.jai
+      |   127:16-17  " "  source.jai
+      |   127:17-19  ":="  source.jai keyword.operator.declaration.jai
+      |   127:19-20  " "  source.jai
+      |   127:20-21  "\""  source.jai string.quoted.double.jai punctuation.definition.string.begin.jai
+      |   127:21-50  "brace } and { inside a string"  source.jai string.quoted.double.jai
+      |   127:50-51  "\""  source.jai string.quoted.double.jai punctuation.definition.string.end.jai
+      |   127:51-52  ";"  source.jai punctuation.terminator.statement.jai
+L 129 |             // a comment with a brace } must not close anything
+      |   128:0-12   "            "  source.jai meta.comment-run.jai
+      |   128:12-14  "//"  source.jai meta.comment-run.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   128:14-63  " a comment with a brace } must not close anything"  source.jai meta.comment-run.jai comment.line.double-slash.jai
+L 130 |             /* a block comment { with } nested /* inner */ braces */
+      |   129:0-12   "            "  source.jai
+      |   129:12-14  "/*"  source.jai comment.block.jai punctuation.definition.comment.begin.jai
+      |   129:14-47  " a block comment { with } nested "  source.jai comment.block.jai
+      |   129:47-49  "/*"  source.jai comment.block.jai comment.block.jai punctuation.definition.comment.begin.jai
+      |   129:49-56  " inner "  source.jai comment.block.jai comment.block.jai
+      |   129:56-58  "*/"  source.jai comment.block.jai comment.block.jai punctuation.definition.comment.end.jai
+      |   129:58-66  " braces "  source.jai comment.block.jai
+      |   129:66-68  "*/"  source.jai comment.block.jai punctuation.definition.comment.end.jai
+L 131 |             counter += helper(i);
+      |   130:0-20   "            counter "  source.jai
+      |   130:20-22  "+="  source.jai keyword.operator.assignment.compound.jai
+      |   130:22-23  " "  source.jai
+      |   130:23-29  "helper"  source.jai entity.name.function.call.jai
+      |   130:29-32  "(i)"  source.jai
+      |   130:32-33  ";"  source.jai punctuation.terminator.statement.jai
+L 132 |         }
+      |   131:0-10   "        }"  source.jai
+L 133 |     }
+      |   132:0-6    "    }"  source.jai
+L 134 | (empty line)
+      |   133:0-1    ""  source.jai
+L 135 |     while counter < 100 {
+      |   134:0-4    "    "  source.jai
+      |   134:4-9    "while"  source.jai keyword.control.jai
+      |   134:9-18   " counter "  source.jai
+      |   134:18-19  "<"  source.jai keyword.operator.comparison.jai
+      |   134:19-20  " "  source.jai
+      |   134:20-23  "100"  source.jai constant.numeric.integer.decimal.jai
+      |   134:23-26  " {"  source.jai
+L 136 |         defer print("deferred\n");
+      |   135:0-8    "        "  source.jai
+      |   135:8-13   "defer"  source.jai keyword.control.jai
+      |   135:13-14  " "  source.jai
+      |   135:14-19  "print"  source.jai entity.name.function.call.jai
+      |   135:19-20  "("  source.jai
+      |   135:20-21  "\""  source.jai string.quoted.double.jai punctuation.definition.string.begin.jai
+      |   135:21-29  "deferred"  source.jai string.quoted.double.jai
+      |   135:29-31  "\\n"  source.jai string.quoted.double.jai constant.character.escape.jai
+      |   135:31-32  "\""  source.jai string.quoted.double.jai punctuation.definition.string.end.jai
+      |   135:32-33  ")"  source.jai
+      |   135:33-34  ";"  source.jai punctuation.terminator.statement.jai
+L 137 |         break;
+      |   136:0-8    "        "  source.jai
+      |   136:8-13   "break"  source.jai keyword.control.jai
+      |   136:13-14  ";"  source.jai punctuation.terminator.statement.jai
+L 138 |     }
+      |   137:0-6    "    }"  source.jai
+L 139 | }
+      |   138:0-2    "}"  source.jai
+L 140 | (empty line)
+      |   139:0-1    ""  source.jai
+L 141 | // ---- Compile-time execution at file scope (#run) -------------------------
+      |   140:0-2    "//"  source.jai meta.comment-run.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   140:2-77   " ---- Compile-time execution at file scope (#run) -------------------------"  source.jai meta.comment-run.jai comment.line.double-slash.jai
+L 142 | //
+      |   141:0-2    "//"  source.jai meta.comment-run.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+L 143 | // File scope is a data scope: it contains declarations, not ordinary
+      |   142:0-2    "//"  source.jai meta.comment-run.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   142:2-69   " File scope is a data scope: it contains declarations, not ordinary"  source.jai meta.comment-run.jai comment.line.double-slash.jai
+L 144 | // statements. Imperative code at file scope therefore runs at compile time
+      |   143:0-2    "//"  source.jai meta.comment-run.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   143:2-75   " statements. Imperative code at file scope therefore runs at compile time"  source.jai meta.comment-run.jai comment.line.double-slash.jai
+L 145 | // via #run, and its declarations are locals (not globals).
+      |   144:0-2    "//"  source.jai meta.comment-run.jai comment.line.double-slash.jai punctuation.definition.comment.jai
+      |   144:2-59   " via #run, and its declarations are locals (not globals)."  source.jai meta.comment-run.jai comment.line.double-slash.jai
+L 146 | (empty line)
+      |   145:0-1    ""  source.jai
+L 147 | #run {
+      |   146:0-4    "#run"  source.jai keyword.other.directive.jai
+      |   146:4-7    " {"  source.jai
+L 148 |     run_block_value := 12;
+      |   147:0-4    "    "  source.jai
+      |   147:4-19   "run_block_value"  source.jai variable.other.declaration.jai
+      |   147:19-20  " "  source.jai
+      |   147:20-22  ":="  source.jai keyword.operator.declaration.jai
+      |   147:22-23  " "  source.jai
+      |   147:23-25  "12"  source.jai constant.numeric.integer.decimal.jai
+      |   147:25-26  ";"  source.jai punctuation.terminator.statement.jai
+L 149 |     run_block_count := 1;
+      |   148:0-4    "    "  source.jai
+      |   148:4-19   "run_block_count"  source.jai variable.other.declaration.jai
+      |   148:19-20  " "  source.jai
+      |   148:20-22  ":="  source.jai keyword.operator.declaration.jai
+      |   148:22-23  " "  source.jai
+      |   148:23-24  "1"  source.jai constant.numeric.integer.decimal.jai
+      |   148:24-25  ";"  source.jai punctuation.terminator.statement.jai
+L 150 | }
+      |   149:0-2    "}"  source.jai
+L 151 | (empty line)
+      |   150:0-1    ""  source.jai
+L 152 | #run,stallable direct_run_value := 12;
+      |   151:0-4    "#run"  source.jai keyword.other.directive.jai
+      |   151:4-5    ","  source.jai punctuation.separator.comma.jai
+      |   151:5-15   "stallable "  source.jai
+      |   151:15-31  "direct_run_value"  source.jai variable.other.declaration.jai
+      |   151:31-32  " "  source.jai
+      |   151:32-34  ":="  source.jai keyword.operator.declaration.jai
+      |   151:34-35  " "  source.jai
+      |   151:35-37  "12"  source.jai constant.numeric.integer.decimal.jai
+      |   151:37-38  ";"  source.jai punctuation.terminator.statement.jai
+L 153 | (empty line)
+      |   152:0-1    ""  source.jai
+L 154 | both_global_and_constant :: 1;
+      |   153:0-24   "both_global_and_constant"  source.jai variable.other.constant.declaration.jai
+      |   153:24-25  " "  source.jai
+      |   153:25-27  "::"  source.jai keyword.operator.declaration.constant.jai
+      |   153:27-28  " "  source.jai
+      |   153:28-29  "1"  source.jai constant.numeric.integer.decimal.jai
+      |   153:29-30  ";"  source.jai punctuation.terminator.statement.jai
+L 155 | (empty line)
+      |   154:0-1    ""  source.jai
+L 156 | #if AT_COMPILE_TIME {
+      |   155:0-3    "#if"  source.jai keyword.control.conditional.directive.jai
+      |   155:3-22   " AT_COMPILE_TIME {"  source.jai
+L 157 |     #run,stallable {
+      |   156:0-4    "    "  source.jai
+      |   156:4-8    "#run"  source.jai keyword.other.directive.jai
+      |   156:8-9    ","  source.jai punctuation.separator.comma.jai
+      |   156:9-21   "stallable {"  source.jai
+L 158 |         set_build_options_dc(.{do_output=false});
+      |   157:0-8    "        "  source.jai
+      |   157:8-28   "set_build_options_dc"  source.jai entity.name.function.call.jai
+      |   157:28-29  "("  source.jai
+      |   157:29-30  "."  source.jai punctuation.accessor.jai
+      |   157:30-40  "{do_output"  source.jai
+      |   157:40-41  "="  source.jai keyword.operator.assignment.jai
+      |   157:41-46  "false"  source.jai constant.language.jai
+      |   157:46-48  "})"  source.jai
+      |   157:48-49  ";"  source.jai punctuation.terminator.statement.jai
+L 159 |         options := get_build_options();
+      |   158:0-8    "        "  source.jai
+      |   158:8-15   "options"  source.jai variable.other.declaration.jai
+      |   158:15-16  " "  source.jai
+      |   158:16-18  ":="  source.jai keyword.operator.declaration.jai
+      |   158:18-19  " "  source.jai
+      |   158:19-36  "get_build_options"  source.jai entity.name.function.call.jai
+      |   158:36-38  "()"  source.jai
+      |   158:38-39  ";"  source.jai punctuation.terminator.statement.jai
+L 160 |         args := options.compile_time_command_line;
+      |   159:0-8    "        "  source.jai
+      |   159:8-12   "args"  source.jai variable.other.declaration.jai
+      |   159:12-13  " "  source.jai
+      |   159:13-15  ":="  source.jai keyword.operator.declaration.jai
+      |   159:15-23  " options"  source.jai
+      |   159:23-24  "."  source.jai punctuation.accessor.jai
+      |   159:24-49  "compile_time_command_line"  source.jai variable.other.member.jai
+      |   159:49-50  ";"  source.jai punctuation.terminator.statement.jai
+L 161 |         if !generate_bindings(args) {
+      |   160:0-8    "        "  source.jai
+      |   160:8-10   "if"  source.jai keyword.control.jai
+      |   160:10-11  " "  source.jai
+      |   160:11-12  "!"  source.jai keyword.operator.logical.jai
+      |   160:12-29  "generate_bindings"  source.jai entity.name.function.call.jai
+      |   160:29-38  "(args) {"  source.jai
+L 162 |             compiler_set_workspace_status(.FAILED);
+      |   161:0-12   "            "  source.jai
+      |   161:12-41  "compiler_set_workspace_status"  source.jai entity.name.function.call.jai
+      |   161:41-42  "("  source.jai
+      |   161:42-43  "."  source.jai punctuation.accessor.jai
+      |   161:43-49  "FAILED"  source.jai variable.other.member.jai
+      |   161:49-50  ")"  source.jai
+      |   161:50-51  ";"  source.jai punctuation.terminator.statement.jai
+L 163 |         }
+      |   162:0-10   "        }"  source.jai
+L 164 |         
+      |   163:0-9    "        "  source.jai
+L 165 |         only_a_constant :: 1;
+      |   164:0-8    "        "  source.jai
+      |   164:8-23   "only_a_constant"  source.jai variable.other.constant.declaration.jai
+      |   164:23-24  " "  source.jai
+      |   164:24-26  "::"  source.jai keyword.operator.declaration.constant.jai
+      |   164:26-27  " "  source.jai
+      |   164:27-28  "1"  source.jai constant.numeric.integer.decimal.jai
+      |   164:28-29  ";"  source.jai punctuation.terminator.statement.jai
+L 166 |     }
+      |   165:0-6    "    }"  source.jai
+L 167 | } else {
+      |   166:0-2    "} "  source.jai
+      |   166:2-6    "else"  source.jai keyword.control.jai
+      |   166:6-9    " {"  source.jai
+L 168 |     #import "System";
+      |   167:0-4    "    "  source.jai
+      |   167:4-11   "#import"  source.jai keyword.control.import.directive.jai
+      |   167:11-12  " "  source.jai
+      |   167:12-13  "\""  source.jai string.quoted.double.jai punctuation.definition.string.begin.jai
+      |   167:13-19  "System"  source.jai string.quoted.double.jai
+      |   167:19-20  "\""  source.jai string.quoted.double.jai punctuation.definition.string.end.jai
+      |   167:20-21  ";"  source.jai punctuation.terminator.statement.jai
+L 169 | (empty line)
+      |   168:0-1    ""  source.jai
+L 170 |     main :: () {
+      |   169:0-4    "    "  source.jai
+      |   169:4-8    "main"  source.jai entity.name.function.jai
+      |   169:8-9    " "  source.jai
+      |   169:9-11   "::"  source.jai keyword.operator.declaration.constant.jai
+      |   169:11-12  " "  source.jai
+      |   169:12-17  "() {"  source.jai
+L 171 |         set_working_directory(path_strip_filename(get_path_of_running_executable()));
+      |   170:0-8    "        "  source.jai
+      |   170:8-29   "set_working_directory"  source.jai entity.name.function.call.jai
+      |   170:29-30  "("  source.jai
+      |   170:30-49  "path_strip_filename"  source.jai entity.name.function.call.jai
+      |   170:49-50  "("  source.jai
+      |   170:50-80  "get_path_of_running_executable"  source.jai entity.name.function.call.jai
+      |   170:80-84  "()))"  source.jai
+      |   170:84-85  ";"  source.jai punctuation.terminator.statement.jai
+L 172 |         args := get_command_line_arguments();
+      |   171:0-8    "        "  source.jai
+      |   171:8-12   "args"  source.jai variable.other.declaration.jai
+      |   171:12-13  " "  source.jai
+      |   171:13-15  ":="  source.jai keyword.operator.declaration.jai
+      |   171:15-16  " "  source.jai
+      |   171:16-42  "get_command_line_arguments"  source.jai entity.name.function.call.jai
+      |   171:42-44  "()"  source.jai
+      |   171:44-45  ";"  source.jai punctuation.terminator.statement.jai
+L 173 |         if !generate_bindings(`args) {
+      |   172:0-8    "        "  source.jai
+      |   172:8-10   "if"  source.jai keyword.control.jai
+      |   172:10-11  " "  source.jai
+      |   172:11-12  "!"  source.jai keyword.operator.logical.jai
+      |   172:12-29  "generate_bindings"  source.jai entity.name.function.call.jai
+      |   172:29-30  "("  source.jai
+      |   172:30-31  "`"  source.jai keyword.operator.backtick.jai
+      |   172:31-39  "args) {"  source.jai
+L 174 |             exit(1);
+      |   173:0-12   "            "  source.jai
+      |   173:12-16  "exit"  source.jai entity.name.function.call.jai
+      |   173:16-17  "("  source.jai
+      |   173:17-18  "1"  source.jai constant.numeric.integer.decimal.jai
+      |   173:18-19  ")"  source.jai
+      |   173:19-20  ";"  source.jai punctuation.terminator.statement.jai
+L 175 |         }
+      |   174:0-10   "        }"  source.jai
+L 176 |     }
+      |   175:0-6    "    }"  source.jai
+L 177 | }
+      |   176:0-2    "}"  source.jai
+L 178 | (empty line)
+      |   177:0-1    ""  source.jai
+L 179 | #run {
+      |   178:0-4    "#run"  source.jai keyword.other.directive.jai
+      |   178:4-7    " {"  source.jai
+L 180 |     non_global_procedure :: () {
+      |   179:0-4    "    "  source.jai
+      |   179:4-24   "non_global_procedure"  source.jai entity.name.function.jai
+      |   179:24-25  " "  source.jai
+      |   179:25-27  "::"  source.jai keyword.operator.declaration.constant.jai
+      |   179:27-28  " "  source.jai
+      |   179:28-33  "() {"  source.jai
+L 181 | (empty line)
+      |   180:0-1    ""  source.jai
+L 182 |     }
+      |   181:0-6    "    }"  source.jai
+L 183 | }
+      |   182:0-2    "}"  source.jai
+
+------------------------------------------------------------------------------
+SCOPE HISTOGRAM (by innermost/leaf scope)
+------------------------------------------------------------------------------
+   439  source.jai
+    72  punctuation.terminator.statement.jai
+    49  variable.other.declaration.jai
+    38  punctuation.separator.colon.jai
+    36  keyword.operator.declaration.constant.jai
+    32  support.type.builtin.jai
+    28  punctuation.definition.comment.jai
+    27  comment.line.double-slash.jai
+    26  entity.name.type.jai
+    23  punctuation.accessor.jai
+    20  variable.other.member.jai
+    19  constant.numeric.integer.decimal.jai
+    17  entity.name.function.call.jai
+    14  keyword.operator.arithmetic.jai
+    13  punctuation.separator.comma.jai
+    13  keyword.control.jai
+    12  variable.other.constant.declaration.jai
+    12  entity.name.function.jai
+    11  keyword.operator.declaration.jai
+    11  keyword.operator.arrow.jai
+    10  storage.type.jai
+     9  punctuation.definition.string.begin.jai
+     9  string.quoted.double.jai
+     9  punctuation.definition.string.end.jai
+     6  keyword.operator.assignment.jai
+     6  keyword.other.directive.jai
+     5  constant.character.escape.jai
+     4  comment.block.jai
+     3  constant.numeric.integer.hexadecimal.jai
+     3  punctuation.definition.comment.begin.jai
+     3  punctuation.definition.comment.end.jai
+     2  keyword.control.import.directive.jai
+     2  constant.numeric.float.decimal.jai
+     2  entity.name.tag.here-string.jai
+     2  string.quoted.double.char.jai
+     2  keyword.operator.pointer.jai
+     2  keyword.operator.range.jai
+     2  keyword.operator.comparison.jai
+     2  keyword.operator.logical.jai
+     1  keyword.other.directive.here-string.jai
+     1  string.unquoted.here-string.jai
+     1  string.unquoted.here-string.body.jai
+     1  keyword.other.directive.char.jai
+     1  keyword.other.using.jai
+     1  storage.modifier.jai
+     1  storage.modifier.directive.jai
+     1  punctuation.definition.polymorph.jai
+     1  entity.name.type.parameter.jai
+     1  storage.type.function.operator.jai
+     1  keyword.control.loop.jai
+     1  meta.comment-run.jai
+     1  keyword.operator.assignment.compound.jai
+     1  keyword.control.conditional.directive.jai
+     1  constant.language.jai
+     1  keyword.operator.backtick.jai
+
+------------------------------------------------------------------------------
+DEFINITION-RELEVANT TOKENS (entity.name.* / *.declaration.* / storage.type / ::)
+These are the name/declaration tokens outline reconstruction keys off.
+------------------------------------------------------------------------------
+  7:  0  "PI"                         variable.other.constant.declaration.jai
+  7:  3  "::"                         keyword.operator.declaration.constant.jai
+  8:  0  "MAX_ENTITIES"               variable.other.constant.declaration.jai
+  8: 13  "::"                         keyword.operator.declaration.constant.jai
+  9:  0  "GREETING"                   variable.other.constant.declaration.jai
+  9:  9  "::"                         keyword.operator.declaration.constant.jai
+ 10:  0  "HERE"                       variable.other.constant.declaration.jai
+ 10:  5  "::"                         keyword.operator.declaration.constant.jai
+ 10: 16  "HERE_END"                   entity.name.tag.here-string.jai
+ 12:  0  "HERE_END"                   entity.name.tag.here-string.jai
+ 13:  0  "QUOTE_CHAR"                 variable.other.constant.declaration.jai
+ 13: 11  "::"                         keyword.operator.declaration.constant.jai
+ 15:  0  "global_counter"             variable.other.declaration.jai
+ 16:  0  "global_name"                variable.other.declaration.jai
+ 16: 12  ":="                         keyword.operator.declaration.jai
+ 20:  0  "Vector3"                    entity.name.type.jai
+ 20:  8  "::"                         keyword.operator.declaration.constant.jai
+ 20: 11  "struct"                     storage.type.jai
+ 21:  4  "x"                          variable.other.declaration.jai
+ 22:  4  "y"                          variable.other.declaration.jai
+ 23:  4  "z"                          variable.other.declaration.jai
+ 26:  0  "Point2"                     entity.name.type.jai
+ 26:  7  "::"                         keyword.operator.declaration.constant.jai
+ 26: 10  "struct"                     storage.type.jai
+ 27:  4  "x"                          variable.other.declaration.jai
+ 27:  7  "y"                          variable.other.declaration.jai
+ 30:  0  "Array_Of"                   entity.name.type.jai
+ 30:  9  "::"                         keyword.operator.declaration.constant.jai
+ 30: 12  "struct"                     storage.type.jai
+ 30: 20  "T"                          variable.other.declaration.jai
+ 31:  4  "data"                       variable.other.declaration.jai
+ 31: 12  "T"                          entity.name.type.jai
+ 32:  4  "count"                      variable.other.declaration.jai
+ 35:  0  "Entity"                     entity.name.type.jai
+ 35:  7  "::"                         keyword.operator.declaration.constant.jai
+ 35: 10  "struct"                     storage.type.jai
+ 36:  4  "id"                         variable.other.declaration.jai
+ 37:  4  "pos"                        variable.other.declaration.jai
+ 37: 11  "Vector3"                    entity.name.type.jai
+ 38:  4  "vel"                        variable.other.declaration.jai
+ 38: 11  "Vector3"                    entity.name.type.jai
+ 39:  4  "name"                       variable.other.declaration.jai
+ 40:  4  "flags"                      variable.other.declaration.jai
+ 40: 11  "Entity_Flags"               entity.name.type.jai
+ 41: 10  "transform"                  variable.other.declaration.jai
+ 41: 21  "Transform"                  entity.name.type.jai
+ 43:  4  "Transform"                  entity.name.type.jai
+ 43: 14  "::"                         keyword.operator.declaration.constant.jai
+ 43: 17  "struct"                     storage.type.jai
+ 44:  8  "rotation"                   variable.other.declaration.jai
+ 45:  8  "scale"                      variable.other.declaration.jai
+ 49:  0  "Entity_Flags"               entity.name.type.jai
+ 49: 13  "::"                         keyword.operator.declaration.constant.jai
+ 49: 16  "enum_flags"                 storage.type.jai
+ 50:  4  "ALIVE"                      variable.other.constant.declaration.jai
+ 50: 16  "::"                         keyword.operator.declaration.constant.jai
+ 51:  4  "VISIBLE"                    variable.other.constant.declaration.jai
+ 51: 16  "::"                         keyword.operator.declaration.constant.jai
+ 52:  4  "SELECTED"                   variable.other.constant.declaration.jai
+ 52: 16  "::"                         keyword.operator.declaration.constant.jai
+ 55:  0  "State"                      entity.name.type.jai
+ 55:  6  "::"                         keyword.operator.declaration.constant.jai
+ 55:  9  "enum"                       storage.type.jai
+ 58:  4  "JUMPING"                    variable.other.constant.declaration.jai
+ 58: 12  "::"                         keyword.operator.declaration.constant.jai
+ 62:  0  "Shape"                      entity.name.type.jai
+ 62:  6  "::"                         keyword.operator.declaration.constant.jai
+ 62:  9  "union"                      storage.type.jai
+ 63:  4  "circle_radius"              variable.other.declaration.jai
+ 64:  4  "rect"                       variable.other.declaration.jai
+ 64: 10  "struct"                     storage.type.jai
+ 64: 19  "w"                          variable.other.declaration.jai
+ 64: 29  "h"                          variable.other.declaration.jai
+ 67:  0  "Alias_Type"                 entity.name.type.jai
+ 67: 11  "::"                         keyword.operator.declaration.constant.jai
+ 68:  0  "Procedure_Type"             entity.name.type.jai
+ 68: 15  "::"                         keyword.operator.declaration.constant.jai
+ 72:  0  "main"                       entity.name.function.jai
+ 72:  5  "::"                         keyword.operator.declaration.constant.jai
+ 73:  4  "print"                      entity.name.function.call.jai
+ 76:  0  "add"                        entity.name.function.jai
+ 76:  4  "::"                         keyword.operator.declaration.constant.jai
+ 76:  8  "a"                          variable.other.declaration.jai
+ 76: 11  "Vector3"                    entity.name.type.jai
+ 76: 20  "b"                          variable.other.declaration.jai
+ 76: 23  "Vector3"                    entity.name.type.jai
+ 76: 35  "Vector3"                    entity.name.type.jai
+ 77:  4  "result"                     variable.other.declaration.jai
+ 77: 12  "Vector3"                    entity.name.type.jai
+ 84:  0  "inline_length"              entity.name.function.jai
+ 84: 14  "::"                         keyword.operator.declaration.constant.jai
+ 84: 25  "v"                          variable.other.declaration.jai
+ 84: 28  "Vector3"                    entity.name.type.jai
+ 85: 11  "__sqrt"                     entity.name.function.call.jai
+ 88:  0  "no_body"                    entity.name.function.jai
+ 88:  8  "::"                         keyword.operator.declaration.constant.jai
+ 88: 12  "x"                          variable.other.declaration.jai
+ 90:  0  "foreign_puts"               entity.name.function.jai
+ 90: 13  "::"                         keyword.operator.declaration.constant.jai
+ 90: 17  "s"                          variable.other.declaration.jai
+ 91:  0  "variadic"                   entity.name.function.jai
+ 91:  9  "::"                         keyword.operator.declaration.constant.jai
+ 91: 13  "args"                       variable.other.declaration.jai
+ 93:  0  "apply"                      entity.name.function.jai
+ 93:  6  "::"                         keyword.operator.declaration.constant.jai
+ 93: 11  "T"                          entity.name.type.parameter.jai
+ 93: 20  "value"                      variable.other.declaration.jai
+ 93: 27  "T"                          entity.name.type.jai
+ 93: 30  "fn"                         variable.other.declaration.jai
+ 93: 41  "T"                          entity.name.type.jai
+ 93: 47  "T"                          entity.name.type.jai
+ 94: 11  "fn"                         entity.name.function.call.jai
+ 97: 11  "::"                         keyword.operator.declaration.constant.jai
+ 97: 15  "a"                          variable.other.declaration.jai
+ 97: 18  "Vector3"                    entity.name.type.jai
+ 97: 27  "s"                          variable.other.declaration.jai
+ 97: 40  "Vector3"                    entity.name.type.jai
+103:  0  "outer_procedure"            entity.name.function.jai
+103: 16  "::"                         keyword.operator.declaration.constant.jai
+104:  4  "Local_Config"               entity.name.type.jai
+104: 17  "::"                         keyword.operator.declaration.constant.jai
+104: 20  "struct"                     storage.type.jai
+105:  8  "width"                      variable.other.declaration.jai
+106:  8  "height"                     variable.other.declaration.jai
+109:  4  "LOCAL_LIMIT"                variable.other.constant.declaration.jai
+109: 16  "::"                         keyword.operator.declaration.constant.jai
+111:  4  "helper"                     entity.name.function.jai
+111: 11  "::"                         keyword.operator.declaration.constant.jai
+111: 15  "x"                          variable.other.declaration.jai
+112:  8  "inner_helper"               entity.name.function.jai
+112: 21  "::"                         keyword.operator.declaration.constant.jai
+115: 23  "inner_helper"               entity.name.function.call.jai
+118:  4  "config"                     variable.other.declaration.jai
+118: 11  ":="                         keyword.operator.declaration.jai
+119:  4  "counter"                    variable.other.declaration.jai
+119: 12  ":="                         keyword.operator.declaration.jai
+120:  4  "typed_local"                variable.other.declaration.jai
+122:  4  "handler"                    variable.other.declaration.jai
+122: 12  ":="                         keyword.operator.declaration.jai
+122: 16  "message"                    variable.other.declaration.jai
+123:  8  "print"                      entity.name.function.call.jai
+126:  8  "i"                          variable.other.declaration.jai
+128: 12  "text"                       variable.other.declaration.jai
+128: 17  ":="                         keyword.operator.declaration.jai
+131: 23  "helper"                     entity.name.function.call.jai
+136: 14  "print"                      entity.name.function.call.jai
+148:  4  "run_block_value"            variable.other.declaration.jai
+148: 20  ":="                         keyword.operator.declaration.jai
+149:  4  "run_block_count"            variable.other.declaration.jai
+149: 20  ":="                         keyword.operator.declaration.jai
+152: 15  "direct_run_value"           variable.other.declaration.jai
+152: 32  ":="                         keyword.operator.declaration.jai
+154:  0  "both_global_and_constant"   variable.other.constant.declaration.jai
+154: 25  "::"                         keyword.operator.declaration.constant.jai
+158:  8  "set_build_options_dc"       entity.name.function.call.jai
+159:  8  "options"                    variable.other.declaration.jai
+159: 16  ":="                         keyword.operator.declaration.jai
+159: 19  "get_build_options"          entity.name.function.call.jai
+160:  8  "args"                       variable.other.declaration.jai
+160: 13  ":="                         keyword.operator.declaration.jai
+161: 12  "generate_bindings"          entity.name.function.call.jai
+162: 12  "compiler_set_workspace_status" entity.name.function.call.jai
+165:  8  "only_a_constant"            variable.other.constant.declaration.jai
+165: 24  "::"                         keyword.operator.declaration.constant.jai
+170:  4  "main"                       entity.name.function.jai
+170:  9  "::"                         keyword.operator.declaration.constant.jai
+171:  8  "set_working_directory"      entity.name.function.call.jai
+171: 30  "path_strip_filename"        entity.name.function.call.jai
+171: 50  "get_path_of_running_executable" entity.name.function.call.jai
+172:  8  "args"                       variable.other.declaration.jai
+172: 13  ":="                         keyword.operator.declaration.jai
+172: 16  "get_command_line_arguments" entity.name.function.call.jai
+173: 12  "generate_bindings"          entity.name.function.call.jai
+174: 12  "exit"                       entity.name.function.call.jai
+180:  4  "non_global_procedure"       entity.name.function.jai
+180: 25  "::"                         keyword.operator.declaration.constant.jai
